@@ -17,5 +17,9 @@ class CorpsCeleste:
     def distanceAvecAutreCorpsCeleste(self, autreCorpsCeleste):
         return sqrt((self.x - autreCorpsCeleste.x)**2, (self.y - autreCorpsCeleste.y)**2) / self.SCALE
 
-    def forceGravitationnel(self, autreCorpsCeleste):
-        return self.G * self.masse * autreCorpsCeleste.masse / self.distanceAvecAutreCorpsCeleste(self, autreCorpsCeleste)**2
+    def forceGravitationnelle(self, autreCorpsCeleste):
+        distance = self.distanceAvecAutreCorpsCeleste(self, autreCorpsCeleste)
+        force = self.G * self.masse * autreCorpsCeleste.masse / distance**2
+        forceX = force * (autreCorpsCeleste.x - self.x) / self.SCALE
+        forceY = force * (autreCorpsCeleste.y - self.y) / self.SCALE
+        return forceX, forceY

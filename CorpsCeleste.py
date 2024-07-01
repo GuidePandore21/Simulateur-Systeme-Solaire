@@ -3,7 +3,7 @@ from math import sqrt, atan2, cos, sin
 class CorpsCeleste:
     G = 6.67430e-11  # Constante gravitationnelle
     UA = 1.496e11  # Unité astronomique en mètres (Distance Terre-Soleil)
-    SCALE = 250 / UA  # Échelle de l'affichage (250 pixels par unité astronomique)
+    SCALE = 100 / UA  # Échelle de l'affichage (250 pixels par unité astronomique)
     TIMESTEP = 3600 * 24  # Une journée en secondes
     
     def __init__(self, nom, x, y, vitesseX, vitesseY, rayon, masse, couleur):

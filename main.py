@@ -2,28 +2,35 @@ import pygame
 from SystemeSolaire import SystemeSolaire
 from CorpsCeleste import CorpsCeleste
 
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 1200
+HEIGHT = 800
 
-ECHELLE_SOLEIL = 50
-ECHELLE_PLANETE = 1000
+ECHELLE_SOLEIL = 30
+ECHELLE_PLANETE_ROCHEUSE = 1000
+ECHELLE_PLANETE_GAZEUSE = 100
+
+# ECHELLE_SOLEIL = 50
+# ECHELLE_PLANETE = 1000
 
 systemeSolaire = SystemeSolaire()
 
 Soleil = CorpsCeleste("Soleil", 0, 0, 0, 0, 696340000 * ECHELLE_SOLEIL, 1.989e30, (255, 223, 0))
 systemeSolaire.ajouterCorpsCeleste(Soleil)
 
-Mercure = CorpsCeleste("Mercure", 0.387 * CorpsCeleste.UA, 0, 0, 47362, 2439700 * ECHELLE_PLANETE, 3.3011e23, (169, 169, 169))
+Mercure = CorpsCeleste("Mercure", 0.387 * CorpsCeleste.UA, 0, 0, 47362, 2439700 * ECHELLE_PLANETE_ROCHEUSE, 3.3011e23, (169, 169, 169))
 systemeSolaire.ajouterCorpsCeleste(Mercure)
 
-Venus = CorpsCeleste("Vénus", 0.723 * CorpsCeleste.UA, 0, 0, 35025.71, 6051800 * ECHELLE_PLANETE, 4.8675e24, (255, 223, 196))
+Venus = CorpsCeleste("Vénus", 0.723 * CorpsCeleste.UA, 0, 0, 35025.71, 6051800 * ECHELLE_PLANETE_ROCHEUSE, 4.8675e24, (255, 223, 196))
 systemeSolaire.ajouterCorpsCeleste(Venus)
 
-Terre = CorpsCeleste("Terre", CorpsCeleste.UA, 0, 0, 29783, 6371000 * ECHELLE_PLANETE, 5.972e24, (87, 138, 204))
+Terre = CorpsCeleste("Terre", CorpsCeleste.UA, 0, 0, 29783, 6371000 * ECHELLE_PLANETE_ROCHEUSE, 5.972e24, (87, 138, 204))
 systemeSolaire.ajouterCorpsCeleste(Terre)
 
-Mars = CorpsCeleste("Mars", 1.523 * CorpsCeleste.UA, 0, 0, 24080, 3396200 * ECHELLE_PLANETE, 6.418e23, (188, 39, 50))
+Mars = CorpsCeleste("Mars", 1.523 * CorpsCeleste.UA, 0, 0, 24080, 3396200 * ECHELLE_PLANETE_ROCHEUSE, 6.418e23, (188, 39, 50))
 systemeSolaire.ajouterCorpsCeleste(Mars)
+
+Jupiter = CorpsCeleste("Jupiter", 5.202 * CorpsCeleste.UA, 0, 0, 13058, 71492000 * ECHELLE_PLANETE_GAZEUSE, 1.898e27, (255, 145, 79))
+systemeSolaire.ajouterCorpsCeleste(Jupiter)
 
 pygame.init()
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))

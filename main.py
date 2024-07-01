@@ -1,4 +1,5 @@
 import pygame
+from math import radians
 from SystemeSolaire import SystemeSolaire
 from CorpsCeleste import CorpsCeleste
 
@@ -11,6 +12,15 @@ ECHELLE_PLANETE_GAZEUSE = 100
 
 # ECHELLE_SOLEIL = 50
 # ECHELLE_PLANETE = 1000
+
+def dessinerAnneaux(surface, x, y, rayon, couleurs):
+    num_segments = len(couleurs)
+    angle_per_segment = 360 / num_segments
+
+    for i in range(num_segments):
+        start_angle = radians(i * angle_per_segment)
+        end_angle = radians((i + 1) * angle_per_segment)
+        pygame.draw.arc(surface, couleurs[i], (x-rayon, y-rayon, 2*rayon, 2*rayon), start_angle, end_angle, 1)
 
 systemeSolaire = SystemeSolaire()
 
@@ -32,6 +42,9 @@ systemeSolaire.ajouterCorpsCeleste(Mars)
 Jupiter = CorpsCeleste("Jupiter", 5.202 * CorpsCeleste.UA, 0, 0, 13058, 71492000 * ECHELLE_PLANETE_GAZEUSE, 1.898e27, (255, 145, 79))
 systemeSolaire.ajouterCorpsCeleste(Jupiter)
 
+Saturne = CorpsCeleste("Saturne", 9.536 * CorpsCeleste.UA, 0, 0, 9640, 60268000 * ECHELLE_PLANETE_GAZEUSE, 	5.684e26, (242, 226, 191))
+systemeSolaire.ajouterCorpsCeleste(Saturne)
+
 pygame.init()
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 CLOCK = pygame.time.Clock()
@@ -46,7 +59,13 @@ while RUNNING:
     
     for planet in systemeSolaire.listeCorpsCeleste:
         planet.calculPositionEtVitesse(systemeSolaire.listeCorpsCeleste)
-        pygame.draw.circle(SCREEN, planet.couleur, (int(planet.x * CorpsCeleste.SCALE + WIDTH // 2), int(planet.y * CorpsCeleste.SCALE + HEIGHT // 2)), planet.rayon)
+        X = int(planet.x * CorpsCeleste.SCALE + WIDTH // 2)
+        Y = int(planet.y * CorpsCeleste.SCALE + HEIGHT // 2)
+        pygame.draw.circle(SCREEN, planet.couleur, (X, Y), planet.rayon)
+        
+        if planet.nom == "Saturne":
+                for i, couleur in enumerate([(210, 180, 140)]):
+                    dessinerAnneaux(SCREEN, X, Y, planet.rayon + (i + 1)*2, [couleur])
     
     pygame.display.update()
     CLOCK.tick(60)

@@ -6,12 +6,9 @@ from CorpsCeleste import CorpsCeleste
 WIDTH = 1200
 HEIGHT = 800
 
-ECHELLE_SOLEIL = 30
-ECHELLE_PLANETE_ROCHEUSE = 1000
-ECHELLE_PLANETE_GAZEUSE = 100
-
-# ECHELLE_SOLEIL = 50
-# ECHELLE_PLANETE = 1000
+ECHELLE_SOLEIL = 50
+ECHELLE_PLANETE_ROCHEUSE = 5000
+ECHELLE_PLANETE_GAZEUSE = 500
 
 def dessinerAnneaux(surface, x, y, rayon, couleurs):
     num_segments = len(couleurs)
@@ -42,11 +39,14 @@ systemeSolaire.ajouterCorpsCeleste(Mars)
 Jupiter = CorpsCeleste("Jupiter", 5.202 * CorpsCeleste.UA, 0, 0, 13058, 71492000 * ECHELLE_PLANETE_GAZEUSE, 1.898e27, (255, 145, 79))
 systemeSolaire.ajouterCorpsCeleste(Jupiter)
 
-Saturne = CorpsCeleste("Saturne", 9.536 * CorpsCeleste.UA, 0, 0, 9640, 60268000 * ECHELLE_PLANETE_GAZEUSE, 	5.684e26, (242, 226, 191))
+Saturne = CorpsCeleste("Saturne", 9.536 * CorpsCeleste.UA, 0, 0, 9640, 60268000 * ECHELLE_PLANETE_GAZEUSE, 5.684e26, (242, 226, 191))
 systemeSolaire.ajouterCorpsCeleste(Saturne)
 
-Uranus = CorpsCeleste("Uranus", 19.189 * CorpsCeleste.UA, 0, 0, 6796, 25559000 * ECHELLE_PLANETE_GAZEUSE, 	8.681e25, (173, 216, 230))
+Uranus = CorpsCeleste("Uranus", 19.189 * CorpsCeleste.UA, 0, 0, 6796, 25559000 * ECHELLE_PLANETE_GAZEUSE, 8.681e25, (173, 216, 230))
 systemeSolaire.ajouterCorpsCeleste(Uranus)
+
+Neptune = CorpsCeleste("Neptune", 30.069 * CorpsCeleste.UA, 0, 0, 5432, 24764000 * ECHELLE_PLANETE_GAZEUSE, 1.024e26, (72, 61, 139))
+systemeSolaire.ajouterCorpsCeleste(Neptune)
 
 pygame.init()
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))

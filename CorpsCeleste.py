@@ -1,4 +1,4 @@
-from math import sqrt
+from math import sqrt, atan2, cos, sin
 
 class CorpsCeleste:
     G = 6.67430e-11  # Constante gravitationnelle
@@ -12,18 +12,19 @@ class CorpsCeleste:
         self.y = y
         self.vitesseX = vitesseX
         self.vitesseY = vitesseY
-        self.rayon = rayon
+        self.rayon = int(rayon * self.SCALE)
         self.masse = masse
         self.couleur = couleur
 
     def distanceAvecAutreCorpsCeleste(self, autreCorpsCeleste):
-        return sqrt((self.x - autreCorpsCeleste.x)**2, (self.y - autreCorpsCeleste.y)**2) / self.SCALE
-
+        return sqrt((self.x - autreCorpsCeleste.x)**2 + (self.y - autreCorpsCeleste.y)**2)
+    
     def forceGravitationnelle(self, autreCorpsCeleste):
-        distance = self.distanceAvecAutreCorpsCeleste(self, autreCorpsCeleste)
+        distance = self.distanceAvecAutreCorpsCeleste(autreCorpsCeleste)
         force = self.G * self.masse * autreCorpsCeleste.masse / distance**2
-        forceX = force * (autreCorpsCeleste.x - self.x) / self.distance
-        forceY = force * (autreCorpsCeleste.y - self.y) / self.distance
+        theta = atan2(autreCorpsCeleste.y - self.y, autreCorpsCeleste.x - self.x)
+        forceX = cos(theta) * force
+        forceY = sin(theta) * force
         return forceX, forceY
     
     def calculPositionEtVitesse(self, autresCorpsCelestes):
@@ -32,7 +33,7 @@ class CorpsCeleste:
         
         for autreCorpsCeleste in autresCorpsCelestes:
             if autreCorpsCeleste != self:
-                forceX, forceY = self.forceGravitationnelle(self, autreCorpsCeleste)
+                forceX, forceY = self.forceGravitationnelle(autreCorpsCeleste)
                 totaleForceX += forceX
                 totaleForceY += forceY
         
@@ -45,5 +46,5 @@ class CorpsCeleste:
         self.vitesseY += accelerationY * self.TIMESTEP
         
         # Mise à jour des positions : px
-        self.x += self.vitesseX * self.TIMESTEP * self.SCALE
-        self.y += self.vitesseY * self.TIMESTEP * self.SCALE
+        self.x += self.vitesseX * self.TIMESTEP
+        self.y += self.vitesseY * self.TIMESTEP

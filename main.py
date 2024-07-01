@@ -5,19 +5,18 @@ from CorpsCeleste import CorpsCeleste
 WIDTH = 600
 HEIGHT = 600
 
-jaune = (255, 255, 0)
-bleu = (150, 150, 255)
-gris = (150, 150, 150)
-
 systemeSolaire = SystemeSolaire()
 
-Soleil = CorpsCeleste("Soleil", 0, 0, 0, 0, 696340000 * 30, 1.989e30, jaune)
+Soleil = CorpsCeleste("Soleil", 0, 0, 0, 0, 696340000 * 30, 1.989e30, (255, 223, 0))
 systemeSolaire.ajouterCorpsCeleste(Soleil)
 
-Mercure = CorpsCeleste("Mercure", 0.387 * CorpsCeleste.UA, 0, 0, 47362, 2439700 * 500, 3.301e23, gris)
+Mercure = CorpsCeleste("Mercure", 0.387 * CorpsCeleste.UA, 0, 0, 47362, 2439700 * 750, 3.3011e23, (169, 169, 169))
 systemeSolaire.ajouterCorpsCeleste(Mercure)
 
-Terre = CorpsCeleste("Terre", CorpsCeleste.UA, 0, 0, 29783, 6371000 * 500, 5.972e24, bleu)
+Venus = CorpsCeleste("Vénus", 0.723 * CorpsCeleste.UA, 0, 0, 35025.71, 6051800 * 500, 4.8675e24, (255, 223, 196))
+systemeSolaire.ajouterCorpsCeleste(Venus)
+
+Terre = CorpsCeleste("Terre", CorpsCeleste.UA, 0, 0, 29783, 6371000 * 750, 5.972e24, (87, 138, 204))
 systemeSolaire.ajouterCorpsCeleste(Terre)
 
 pygame.init()

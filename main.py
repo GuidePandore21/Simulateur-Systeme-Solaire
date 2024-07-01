@@ -7,12 +7,15 @@ HEIGHT = 600
 
 jaune = (255, 255, 0)
 bleu = (150, 150, 255)
-blanc = (255, 255, 255)
+gris = (150, 150, 150)
 
 systemeSolaire = SystemeSolaire()
 
 Soleil = CorpsCeleste("Soleil", 0, 0, 0, 0, 696340000 * 30, 1.989e30, jaune)
 systemeSolaire.ajouterCorpsCeleste(Soleil)
+
+Mercure = CorpsCeleste("Mercure", 0.387 * CorpsCeleste.UA, 0, 0, 47362, 2439700 * 500, 3.301e23, gris)
+systemeSolaire.ajouterCorpsCeleste(Mercure)
 
 Terre = CorpsCeleste("Terre", CorpsCeleste.UA, 0, 0, 29783, 6371000 * 500, 5.972e24, bleu)
 systemeSolaire.ajouterCorpsCeleste(Terre)

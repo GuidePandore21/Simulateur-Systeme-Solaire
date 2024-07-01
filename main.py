@@ -45,6 +45,9 @@ systemeSolaire.ajouterCorpsCeleste(Jupiter)
 Saturne = CorpsCeleste("Saturne", 9.536 * CorpsCeleste.UA, 0, 0, 9640, 60268000 * ECHELLE_PLANETE_GAZEUSE, 	5.684e26, (242, 226, 191))
 systemeSolaire.ajouterCorpsCeleste(Saturne)
 
+Uranus = CorpsCeleste("Uranus", 19.189 * CorpsCeleste.UA, 0, 0, 6796, 25559000 * ECHELLE_PLANETE_GAZEUSE, 	8.681e25, (173, 216, 230))
+systemeSolaire.ajouterCorpsCeleste(Uranus)
+
 pygame.init()
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 CLOCK = pygame.time.Clock()

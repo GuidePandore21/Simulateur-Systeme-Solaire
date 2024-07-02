@@ -1,7 +1,5 @@
 # 🌌 Modélisation de notre Système Solaire
 
-![Solar System](https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif)
-
 ## Objectif
 
 Ce projet a pour but de représenter le système solaire de manière la plus réaliste possible. Dans cette simulation, les trajectoires des corps célestes ne sont pas scriptées mais calculées à chaque instant. Cela permet de simuler des interactions gravitationnelles réalistes. Par exemple, ajouter une planète massive en orbite autour du Soleil peut déclencher des perturbations importantes dans le système.
@@ -45,5 +43,3 @@ Un autre aspect réaliste que nous avons voulu représenter est la distance entr
 ## Contact
 
 Pour toute question ou suggestion, vous pouvez nous contacter à thomas.lyautey@lacatholille.fr.
-
-![Astronaut](https://media.giphy.com/media/26FPCXdkvDbKBbgOI/giphy.gif)

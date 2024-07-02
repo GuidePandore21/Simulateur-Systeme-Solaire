@@ -11,13 +11,13 @@ ECHELLE_PLANETE_ROCHEUSE = 5000
 ECHELLE_PLANETE_GAZEUSE = 500
 
 def dessinerAnneaux(surface, x, y, rayon, couleurs):
-    num_segments = len(couleurs)
-    angle_per_segment = 360 / num_segments
+    numSegments = len(couleurs)
+    angleParSegment = 360 / numSegments
 
-    for i in range(num_segments):
-        start_angle = radians(i * angle_per_segment)
-        end_angle = radians((i + 1) * angle_per_segment)
-        pygame.draw.arc(surface, couleurs[i], (x-rayon, y-rayon, 2*rayon, 2*rayon), start_angle, end_angle, 1)
+    for i in range(numSegments):
+        startAngle = radians(i * angleParSegment)
+        endAngle = radians((i + 1) * angleParSegment)
+        pygame.draw.arc(surface, couleurs[i], (x-rayon, y-rayon, 2*rayon, 2*rayon), startAngle, endAngle, 1)
 
 systemeSolaire = SystemeSolaire()
 
